@@ -18,16 +18,6 @@
     body {
       background: url('background.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      pointer-events: none;
     }
 
     .overlay {
@@ -61,11 +51,13 @@
     }
 
     .profile img {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      border: 3px solid white;
-      margin-bottom: 15px;
+      border: 4px solid white;
+      margin: 0 auto 15px auto;
+      display: block;
+      object-fit: cover;
     }
 
     .profile h1 {
@@ -100,7 +92,7 @@
 
     .link:hover {
       transform: translateY(-5px);
-      background-color: #20c997; /* Hijau Tosca */
+      background-color: #20c997;
       color: white;
     }
 
@@ -123,9 +115,9 @@
     .footer {
       margin-top: 25px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+      gap: 15px;
       align-items: center;
       color: white;
       font-size: 14px;
@@ -138,10 +130,16 @@
       gap: 8px;
     }
 
+
+
     .footer img {
-      height: 24px;
-      border-radius: 50%;
-    }
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
 
     @keyframes fadeBlink {
       0%, 100% { opacity: 0; }
@@ -164,7 +162,6 @@
       .footer { flex-direction: column; gap: 15px; }
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -188,9 +185,12 @@
     }
 
     .modal-content img {
-      width: 100px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      margin-bottom: 10px;
+      margin: 0 auto 15px auto;
+      display: block;
+      object-fit: cover;
     }
 
     .close {
@@ -207,7 +207,6 @@
   </style>
 </head>
 <body>
-  <canvas id="rain"></canvas>
   <div class="overlay"></div>
   <div class="container">
     <div class="profile" id="profileClick">
@@ -215,105 +214,42 @@
       <h1>SUNGAI MARON <br> Pacitan Jawa Timur</h1>
     </div>
 
-    
-
     <div class="links">
       <a class="link" href="https://www.youtube.com/results?search_query=sungai+maron+pacitan" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
       <a class="link" href="https://www.instagram.com/sungaimaronofficial_/?igsh=MXJsbXp0NXlwZDFkNw%3D%3D#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-      <a class="link" href="https://www.tiktok.com/place/Sungai-Maron-Pacitan-22535865205117589?_d=secCgYIASAHKAESPgo8XU4sVpHrfbCbp%2B19YmZp6UhRdxGzPSN1ApduJA5Dpl%2FP3ii6AmC%2F%2FFKm8Tt0JsDe%2FIn%2FOlpZF79CfvtiGgA%3D&_r=1&_svg=1&checksum=ab9487c24e08f93ca7cfd34cd8d08f247d367ade78bfc34cfc5596fe4883c108&language=id&sec_user_id=MS4wLjABAAAAmtD8wicKKrJwcrnjTq_8l940mAD5gmTQo6XtybCNflBnrdLI2ntsIqd6C42wKcUv&share_app_id=1180&share_link_id=911c7ed1-c9f6-43d2-8e00-65f41d631c72&share_poi_id=22535865205117589&social_share_type=25&timestamp=1751381473&u_code=ekd1m06lk7536k&ug_btm=b6880%2Cb26943&ugbiz_name=UNKNOWN&user_id=7507269158142051346&utm_campaign=client_share&utm_medium=android&utm_source=whatsapp" target="_blank"><i class="fab fa-tiktok"></i> TikTok Ulasan</a>
-      <a class="link" href="https://www.tiktok.com/@sungaimaron_?_t=ZS-8xfPxsqRy4t&_r=1" target="_blank"><i class="fab fa-tiktok"></i> TikTok Video</a>
-      <a class="link" href="https://sungaimaron.my.canva.site/" target="_blank"><i class="fas fa-globe"></i> About Maron </a>
-      <a class="link" href="https://forms.gle/MtZ6gcH2MVpNYHx89" target="_blank"><i class="fas fa-pen-to-square"></i>Beri Rating Penilaian</a>
-      <a class="link" href="https://sungaimaronwisata.blogspot.com/" target="_blank"><i class="fas fa-comment-dots"></i> Beri Ulasan </a>
+      <a class="link" href="https://www.tiktok.com/@sungaimaron_?_t=ZS-8xfPxsqRy4t&_r=1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a class="link" href="https://forms.gle/MtZ6gcH2MVpNYHx89" target="_blank"><i class="fas fa-pen-to-square"></i> Give Rating</a>
       <a class="link" href="https://drive.google.com/drive/folders/1b0oqwnyhGsYrum35m0VCllbVz_Ln_xHx?usp=sharing" target="_blank"><i class="fas fa-video"></i> Video Sungai Maron</a>
-      <a class="link" href="https://maps.app.goo.gl/QpkuChyqpt5XJ1yn8?g_st=aw" target="_blank"><i class="fas fa-map-marked-alt"></i>Lokasi Maps</a>
+      <a class="link" href="https://maps.app.goo.gl/QpkuChyqpt5XJ1yn8?g_st=aw" target="_blank"><i class="fas fa-map-marked-alt"></i> Location Maps</a>
+      <a class="link" href="https://wa.me/6285230369135" target="_blank"><i class="fab fa-whatsapp"></i> Admin 1</a>
+      <a class="link" href="https://wa.me/6285331377611" target="_blank"><i class="fab fa-whatsapp"></i> Admin 2</a>
     </div>
 
     <div class="welcome-text">Selamat Datang Di Sungai Maron</div>
-    <div class="info-text">Untuk informasi kontak lebih lanjut, silakan hubungi email: sungaimaron@gmail.com</div>
 
     <div class="footer">
       
-    
-
       <div class="footer-item">
-        <img src="logo-kecil2.jpg" alt="Logo Kecil 2">
-        <span>SungaiMaronPacitan</span>
+        <img src="logo-kecil.png" alt="Logo Kecil 1">
+        <br>
+        <img src="logo-kecil2.png" alt="Logo Kecil 2">
+        <br>
+        <img src="profile.jpg" alt="Logo Kecil 3">
       </div>
-    
-        <div class="footer-item">
-        <img src="logo-kecil.jpg" alt="Logo Kecil 1">
-        <span>KKN42UKDWDusunMaron2025</span>
-      </div>
-
     </div>
   </div>
 
-  <!-- Modal -->
   <div id="modalProfile" class="modal">
     <div class="modal-content">
       <span class="close" id="modalClose">&times;</span>
       <img src="profile.jpg" alt="Foto Profil" />
       <h2>Sungai Maron - Pacitan</h2>
-      <p>Tempat wisata air alami yang menakjubkan di Pacitan, cocok untuk liburan keluarga, arung perahu, dan fotografi alam.</p>
       <br>
-      <p><strong>Kontak WA:</strong> 0852-3036-9135 (Ganang) <br> <strong>Kontak Telp:</strong> 0853-3137-7611 <br> <br> bit.ly/sungaimaronpacitan <br> sungaimaron.github.io </p>
+      <p>Tempat wisata air alami yang menakjubkan di Pacitan, Jawa Timur, Indonesia cocok untuk liburan keluarga, arung perahu, dan fotografi alam.</p>
     </div>
   </div>
 
   <script>
-    const canvas = document.getElementById('rain');
-    const ctx = canvas.getContext('2d');
-    let w = canvas.width = window.innerWidth;
-    let h = canvas.height = window.innerHeight;
-    const drops = [];
-
-    function RainDrop() {
-      this.x = Math.random() * w;
-      this.y = Math.random() * -h;
-      this.length = Math.random() * 25 + 15;
-      this.speed = Math.random() * 5 + 5;
-      this.width = Math.random() * 2 + 1;
-      this.opacity = Math.random() * 0.5 + 0.5;
-
-      this.draw = function() {
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x, this.y + this.length);
-        ctx.strokeStyle = `rgba(173, 216, 230, ${this.opacity})`;
-        ctx.lineWidth = this.width;
-        ctx.stroke();
-      }
-
-      this.update = function() {
-        this.y += this.speed;
-        if (this.y > h) {
-          this.y = -this.length;
-          this.x = Math.random() * w;
-        }
-        this.draw();
-      }
-    }
-
-    for (let i = 0; i < 500; i++) {
-      drops.push(new RainDrop());
-    }
-
-    function animateRain() {
-      ctx.clearRect(0, 0, w, h);
-      for (let drop of drops) {
-        drop.update();
-      }
-      requestAnimationFrame(animateRain);
-    }
-
-    animateRain();
-
-    window.addEventListener('resize', () => {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-    });
-
     const profile = document.getElementById('profileClick');
     const modal = document.getElementById('modalProfile');
     const closeBtn = document.getElementById('modalClose');
